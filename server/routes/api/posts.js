@@ -30,7 +30,7 @@ router.delete('/:id', async (req, res) => {
 
 async function loadPostsCollection() {
     const client = await mongodb.MongoClient.connect
-    ('mongodb://test:test12@ds133353.mlab.com:33353/vue_mongo', {useNewUrlParser: true})
+    (process.env.MONGO_API, {useNewUrlParser: true})
     return client.db('vue_mongo').collection('posts')
 }
 
